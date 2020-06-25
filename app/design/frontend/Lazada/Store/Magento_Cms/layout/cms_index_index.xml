@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="css/cms.css"/>
+    </head>
+    <body>
+        <!-- <move element="logo" destination="header.panel.wrapper" />
+        <move element="navigation.sections" destination="header.panel.wrapper" /> -->
+        <!-- after="homepage.banner" -->
+        <!-- <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+        <referenceBlock name="sidebar.additional" remove="true"/> -->
+        <!-- <referenceBlock name="wishlist_sidebar" remove="true" /> -->
+        <!-- <referenceContainer name="content_categories" /> -->
+        <!-- <referenceBlock name="sidebar.additional" remove="true"/>
+        <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+        <referenceBlock name="wishlist_sidebar" remove="true"/>
+        <referenceBlock name="catalog.leftnav" remove="true" /> -->
+<!--         
+        <referenceContainer name="sidebar.main" remove="true" /> -->
+        
+    </body>        
+</page>

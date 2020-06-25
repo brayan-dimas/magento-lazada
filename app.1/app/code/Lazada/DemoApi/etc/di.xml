@@ -1,0 +1,4 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Lazada\DemoApi\Api\ProductRepositoryInterface" type="Lazada\DemoApi\Model\ProductRepository" />
+    <preference for="Lazada\DemoApi\Api\Data\ProductInterface" type="Lazada\DemoApi\Model\Data\Product" />
+</config>

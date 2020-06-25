@@ -1,0 +1,4 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Customer\Block\Form\Login" type="Lazada\Customer\Block\Form\Login" />
+    <preference for="Magento\Customer\Block\Form\Register" type="Lazada\Customer\Block\Form\Register" />
+</config>

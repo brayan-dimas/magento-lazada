@@ -1,0 +1,206 @@
+.container-limiter {
+    /* width: 100%; */
+    margin: 0 auto;
+    /* background-image: url('pub'); */
+}
+
+.container-login {
+    /* width: 100%;   */
+    margin-top: 8%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    /* padding: 15px; */
+  
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    z-index: 1;  
+  }
+  
+
+  .block.block-customer-login {
+    /* display: none; */
+    width: 60%;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 40px 40px 35px 40px;
+  
+    background: #9152f8;
+    background: -webkit-linear-gradient(top, #7579ff, #b224ef);
+    background: -o-linear-gradient(top, #7579ff, #b224ef);
+    background: -moz-linear-gradient(top, #7579ff, #b224ef);
+    background: linear-gradient(top, #7579ff, #b224ef);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+  }
+
+.customer-account-login fieldset.fieldset.login::after {
+    color: white;
+}
+
+.customer-account-login div.secondary a.action.remind span {
+    color: white;
+}
+
+.form.form-login {
+    width: 100%;
+}
+
+.login-form-logo {
+    background: url('../images/login_logo.png') no-repeat;
+    /* font-size: 60px;
+    color: #333333; */
+    /* display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center; */
+    width: 255px;
+    height: 250px;
+    /* border-radius: 50%; */
+    /* background-color: #fff; */
+    /* box-sizing: border-box; */
+    float: left;
+    /* margin: 0; */
+}
+
+.customer-account-login li {
+    list-style-type: none;
+}
+
+.customer-account-login li a {
+    color: white;    
+}
+
+.customer-account-login header div.panel.header {
+    display: none;
+}
+
+div.block-title strong#block-customer-login-heading {
+    color: white;
+}
+
+.customer-account-login .page-main {
+    margin: 0 !important;    
+    padding: 0 !important;    
+    max-width: 100% !important;
+    /* max-width: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 0 !important; */
+}
+
+.customer-account-login .columns .column.main {
+    padding: 0 !important;
+    /* background-color: red; */
+}
+
+.customer-account-login .login-container .fieldset:after {
+    margin: 10px 0px 0px 25% !important;
+}
+
+.customer-account-login .column.main {
+    min-height: 0 !important;
+}
+
+.customer-account-login .nav-sections {
+    margin: 0 !important;
+}
+
+.input-text.input-email {
+    box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	outline: none;
+	display: block;
+	width: 100%;
+	padding: 3px;
+	border: none;
+	border-bottom: 1px solid #ddd;
+	background: transparent;
+    font: 12px Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+.input-text.input-email:focus {    
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+input[type=password] {
+    color: white;
+    box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	outline: none;
+	display: block;
+	width: 100%;
+	padding: 3px;
+	border: none;
+	border-bottom: 1px solid #ddd;
+	background: transparent;
+	font: 12px Arial, Helvetica, sans-serif;
+}
+
+input[type=password]:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+button.action.primary {
+    background-color: #7579ff !important;
+    border: 1px solid #7579ff !important;
+}   
+
+button.action.primary:hover {
+    background: -webkit-linear-gradient(top, #7579ff, #b224ef) !important;
+    border: 1px solid #b224ef !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+}
+
+body.customer-account-login {
+    /* height: 0% !important; */
+    background: url('../images/bckgrd.jpg');
+    min-height: 100vh;
+    /* display: -webkit-box;
+    display: -webkit-flex; */
+    display: -moz-box;
+    display: -ms-flexbox;
+    /* display: flex; */
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    /* background-repeat: no-repeat; */
+    /* background-position: center; */
+    /* background-size: cover; */
+    position: relative;
+    z-index: 1;
+}
+
+body.customer-account-login::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(255,255,255,0.9);
+}
+
+body.customer-account-login label.label span {
+    color: white;
+}
+
+div.field.note {
+    color: white;
+}

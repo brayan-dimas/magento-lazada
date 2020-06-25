@@ -1,0 +1,34 @@
+<?php /**@var Lazada\SearchAutocomplete\Block\Autocomplete $block  */?>
+
+<div data-bind="scope: 'searchsuiteautocomplete_form'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Magento_Ui/js/core/app": {
+            "components": {
+                "searchsuiteautocomplete_form": {
+                    "component": "Lazada_SearchAutocomplete/js/autocomplete"
+                },
+                "searchsuiteautocompleteBindEvents": {
+                    "component": "Lazada_SearchAutocomplete/js/bindEvents",
+                    "config": {
+                        "searchFormSelector": "#search_mini_form",
+                        "searchButtonSelector": "button.search",
+                        "inputSelector": "#search, #mobile_search, .minisearch input[type=\"text\"]",
+                        "searchDelay": "<?php echo $block->escapeHtml($block->getSearchDelay()) ?>"
+                    }
+                },
+                "searchsuiteautocompleteDataProvider": {
+                    "component": "Lazada_SearchAutocomplete/js/dataProvider",
+                    "config": {
+                        "url": "<?php echo $block->escapeUrl($block->getSearchUrl()) ?>"
+                    }
+                }
+            }
+        }
+    }
+}
+</script>

@@ -1,0 +1,73 @@
+<?php 
+    $counter = $this->helper('\Magento\Checkout\Helper\Cart');
+    $objectManagerlogin = \Magento\Framework\App\ObjectManager::getInstance();
+    $customerSession = $objectManagerlogin->create('Magento\Customer\Model\Session');
+    $baseurl = $objectManagerlogin->get('Magento\Store\Model\StoreManagerInterface')->getStore(0)->getBaseUrl();
+
+    $cart = $objectManagerlogin->get('\Magento\Checkout\Model\Cart'); 
+    
+    $totalItems = $cart->getQuote()->getItemsCount() ? : 0;
+?>
+
+
+<div class="container">
+    <div class = "shadow-sm p-3 mb-5 bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light"> 
+            <img class="navbar-brand" src="<?php echo $block->getViewFileUrl('Magento_Theme::../images/logo.png'); ?>" alt="Lazada" width="120">                        
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <?php if($customerSession->isLoggedIn()) { ?>
+                        <li class="nav-item"><a class="nav-link" href="<?php echo $this->getUrl('customer/account'); ?>">MY ACCOUNT</a></li>                    
+                        <li class="nav-item"><a class="nav-link" href="<?php echo $this->getUrl('customer/account/logout'); ?>">LOGOUT</a></li>
+                    <?php } else { ?>
+                        <li class="nav-item"><a class="nav-link" href="<?php echo $this->getUrl('customer/account/login'); ?>">LOGIN</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?php echo $this->getUrl('customer/account/create'); ?>">SIGN UP</a></li>
+                    <?php } ?>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo $this->getUrl('checkout/cart/'); ?>"><i class="fas fa-shopping-cart"></i> CART(<span><?php echo $totalItems; ?></span>)</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo $this->getUrl('checkout/'); ?>">CHECKOUT</a></li>
+                </ul>                           
+            </div>
+        </nav>  
+        <nav class="navbar navbar-expand-lg navbar-light bg-light"> 
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                <!-- <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Get in Touch</a>
+                    </li>           
+                </ul>
+                <form class="form-inline my-2 my-lg-0"action="<?php echo $this->getUrl('catalogsearch/result'); ?>" method="get">                    
+                    <div class="form-group has-search">
+                        <span class="fa fa-search form-control-feedback"></span>
+                        <input class="form-control" placeholder="Search" autocomplete="off" maxlength="128" name="q" type="text" value="" placeholder="Search">
+                    </div>
+                    <!-- <div class="form-group has-search">
+                        <span class="fa fa-search form-control-feedback"></span> 
+                        <div class="input-group">                                                                           
+                            <input class="form-control" placeholder="Search this blog" autocomplete="off" maxlength="128" name="q" type="text" value="" placeholder="Search">
+                            <div class="input-group-append">
+                                <button class="btn btn-secondary" title="Search" type="submit">
+                                <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div> -->
+                </form>               
+            </div>
+        </nav> 
+    </div>
+</div>

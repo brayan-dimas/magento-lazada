@@ -1,0 +1,116 @@
+body.account.customer-account-index {
+    /* height: 0% !important; */
+    background: url('../images/bckgrd.jpg');
+    min-height: 100vh;
+    /* display: -webkit-box;
+    display: -webkit-flex; */
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    /* background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; */
+    position: relative;
+    z-index: 1;
+}
+  
+body.account.customer-account-index::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(255,255,255,0.9);
+}
+
+div.account-nav-content ul li.nav.item.current {
+    /* background: -webkit-linear-gradient(top, #7579ff, #b224ef); */
+    color: white;
+}
+
+div.account-nav-content ul li strong {
+    color: black;
+}
+
+.account-nav .content {
+    /* background: -webkit-linear-gradient(top, #7579ff, #b224ef);
+    background: -o-linear-gradient(top, #7579ff, #b224ef);
+    background: -moz-linear-gradient(top, #7579ff, #b224ef);
+    background: linear-gradient(top, #7579ff, #b224ef);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important; */
+}
+
+.customer-account-index .content .alink {
+  color: black !important;
+  text-decoration: none;
+}
+
+body.customer-account-index .block-dashboard-info .block-title {
+    background: -webkit-linear-gradient(top, #7579ff, #b224ef);
+    background: -o-linear-gradient(top, #7579ff, #b224ef);
+    background: -moz-linear-gradient(top, #7579ff, #b224ef);
+    background: linear-gradient(top, #7579ff, #b224ef);
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important; */
+    padding: 10px;
+    color: white;
+}
+
+body.customer-account-index .block-dashboard-info {
+    background-color: white;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important; */
+}
+
+body.customer-account-index .block-dashboard-info .box.box-information {
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+body.customer-account-index .block-dashboard-info .box.box-newsletter {
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+body.customer-account-index .block.block-dashboard-addresses {
+    background-color: white;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important; */
+}
+
+body.customer-account-index .block.block-dashboard-addresses .block-title {
+    background: -webkit-linear-gradient(top, #7579ff, #b224ef);
+    background: -o-linear-gradient(top, #7579ff, #b224ef);
+    background: -moz-linear-gradient(top, #7579ff, #b224ef);
+    background: linear-gradient(top, #7579ff, #b224ef);
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important; */
+    padding: 10px;
+    color: white;
+}
+
+body.customer-account-index .block.block-dashboard-addresses .box.box-billing-address {
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+body.customer-account-index .block.block-dashboard-addresses .box.box-shipping-address {
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+
+body.customer-account-index .account-nav .content {
+    background-color: white !important;
+}
+
+.account-nav .item.current a, .account-nav .item.current strong{
+    border-color: blueviolet;    
+}
+
+body.customer-account-index .block.block-dashboard-addresses .block-title a span {
+    float: right;
+     color: white;
+}

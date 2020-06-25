@@ -1,0 +1,38 @@
+.selector-for-some-widget {
+  box-sizing: content-box;
+}
+
+.page-header .panel.wrapper {
+  border-bottom: none !important;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+  padding-right: 1rem !important;
+  padding-left: 1rem !important;
+}
+
+ul.navbar-nav.mr-auto {
+  font-size: 12px;
+}
+
+ul.navbar-nav.ml-auto {
+  font-size: 12px;
+}
+
+/* .has-search > .form-control-feedback > .input-group > .form-control{ */
+
+.has-search > .form-control-feedback > .input-group > .form-control{
+  padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}

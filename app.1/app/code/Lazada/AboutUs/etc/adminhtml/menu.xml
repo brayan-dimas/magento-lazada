@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Lazada_AboutUs::helloworld" title="LAZADA" module="Lazada_AboutUs" sortOrder="51" resource="Lazada_AboutUs::helloworld"/>
+        <add id="Lazada_AboutUs::hello_configuration" title="AboutUs" module="Lazada_AboutUs" sortOrder="99" parent="Lazada_AboutUs::helloworld" action="aboutus/post/aboutus" resource="Lazada_AboutUs::helloworld_configuration"/>
+    </menu>
+</config>

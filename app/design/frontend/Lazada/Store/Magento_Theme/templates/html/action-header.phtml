@@ -1,0 +1,39 @@
+<?php 
+    $counter = $this->helper('\Magento\Checkout\Helper\Cart');
+    $objectManagerlogin = \Magento\Framework\App\ObjectManager::getInstance();
+    $customerSession = $objectManagerlogin->create('Magento\Customer\Model\Session');
+    $baseurl = $objectManagerlogin->get('Magento\Store\Model\StoreManagerInterface')->getStore(0)->getBaseUrl();
+
+    $cart = $objectManagerlogin->get('\Magento\Checkout\Model\Cart'); 
+    
+    $totalItems = $cart->getQuote()->getItemsCount() ? : 0;
+?>
+<!-- 
+<div class="nav-container loggedout">
+    <div class="container">
+        <div class="search-box">
+            <form class="form minisearch" action="<?php echo $this->getUrl('catalogsearch/result'); ?>" method="get">
+                <div class="field search">
+                    <div class="control">
+                        <input class="input-text" autocomplete="off" maxlength="128" name="q" type="text" value="" placeholder="Search Medexpress" />
+                        <div id="search_autocomplete" class="search-autocomplete"></div>
+                    </div>
+                </div>
+                <div class="actions">
+                    <button class="action search" title="Search" type="submit"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+        </div>
+        <ul class="action">
+            <?php if($customerSession->isLoggedIn()) { ?>
+                <li><a href="<?php echo $this->getUrl('customer/account'); ?>">MY ACCOUNT</a></li>|
+                <li><a href="<?php echo $this->getUrl('customer/account/logout'); ?>">LOGOUT</a></li>|
+            <?php } else { ?>
+                <li><a href="<?php echo $this->getUrl('customer/account/login'); ?>">LOGIN</a></li>|
+                <li><a href="<?php echo $this->getUrl('customer/account/create'); ?>">SIGN UP</a></li>|
+            <?php } ?>
+            <li><a href="<?php echo $this->getUrl('checkout/cart/'); ?>"><i class="fas fa-shopping-cart"></i> CART(<span><?php echo $totalItems; ?></span>)</a></li>|
+            <li><a href="<?php echo $this->getUrl('checkout/'); ?>">CHECKOUT</a></li>
+        </ul>
+    </div>
+</div> -->

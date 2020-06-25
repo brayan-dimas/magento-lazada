@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+           <!-- <block class="Lazada\Customer\Block\Adminhtml\Customer\Importdata" name="importdata_customer" template="Lazada_Customer::import_customer.phtml" /> -->
+           <block class="Lazada\Customer\Block\Adminhtml\Dataimport\Importdata" name="importdata_locator"/>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,110 @@
+.container-limiter-register {
+    /* width: 100%; */
+    margin: 0 auto;
+    /* background-image: url('pub'); */
+}
+
+body.customer-account-create .panel.header {
+    padding: 0% !important;
+}
+
+body.customer-account-create .page-header .panel.wrapper {
+    border: none;
+}
+
+.container-register {
+    background: url('../images/bckgrd.jpg');
+    width: 100%;     
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    /* padding: 15px; */
+  
+    /* background-repeat: no-repeat; */
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    z-index: 1;  
+  }
+
+  
+.form.form-create-account {
+    width: 100%;
+}
+  
+  .container-register::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(255,255,255,0.9);
+  }
+
+  .block.block-customer-register {
+    width: 70%;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 55px 55px 37px 55px;
+  
+    background: #9152f8;
+    background: -webkit-linear-gradient(top, #7579ff, #b224ef);
+    background: -o-linear-gradient(top, #7579ff, #b224ef);
+    background: -moz-linear-gradient(top, #7579ff, #b224ef);
+    background: linear-gradient(top, #7579ff, #b224ef);
+  }
+
+  .customer-account-create .page-main {
+    margin: 0 !important;    
+    padding: 0 !important;    
+    max-width: 100% !important;
+}
+
+.customer-account-create .columns .column.main {
+    padding: 0 !important;
+    /* background-color: red; */
+}
+
+.customer-account-create .login-container .fieldset:after {
+    margin: 0 !important;
+}
+
+.customer-account-create .column.main {
+    min-height: 0 !important;
+}
+
+.customer-account-create .nav-sections {
+    margin: 0 !important;
+}
+
+.customer-account-create .register-form-logo {
+    background: url('../images/login_logo.png') no-repeat;  
+    background-size: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 250px;
+    border-radius: 50%;
+    /* background-color: #fff;     */
+    box-sizing: border-box;
+    float: left;
+    margin: 45px 0 0 50px;
+}
+
+.form.create.account {
+    float: left !important;
+}

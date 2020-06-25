@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+   <!-- <head>
+        <css src="css/custom.css"/>
+    </head> -->
+    <body>
+        <referenceContainer name="footer-container" remove="true"/>
+        <referenceContainer name="top.links" remove="true" />
+        <referenceContainer name="catalog.topnav" remove="true"/>
+        <referenceContainer name="customer.new" remove="true"/>
+        <!-- <move element="customer.new" destination="form.additional.info"/>     -->
+        
+        <move element="minicart" destination="custom_header"/>
+        <!-- <move element="register-link" destination="form.additional.info"/> -->
+        
+        <move element="top.search" destination="custom_header"/>
+        <move element="logo" as="logo" destination="custom_header"/>
+        <referenceContainer name="footer_links" remove="true" />
+        <referenceBlock name="privacy-policy-link" remove="true"/>
+        <referenceBlock name="search-term-popular-link" remove="true"/>
+        <referenceBlock name="contact-us-link" remove="true"/>    
+        <referenceBlock name="privacy-policy-link" remove="true"/>       
+        <referenceBlock name="header.links" display="false"/>
+        <referenceBlock name="footer-container" display="false"/>
+
+        <!-- <referenceContainer name="custom.top.links">                    
+            <block class="Magento\Customer\Block\Account\RegisterLink" name="custom-register-link">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">Create an Account</argument>
+                </arguments>
+            </block>            
+        </referenceContainer>   -->
+        
+        <referenceContainer name="content">
+            <!-- customer.form.login.extra -->
+            <container name="customer.login.container" label="Customer Login Container" htmlTag="div" htmlClass="login-container">
+                <block class="Magento\Customer\Block\Form\Login" name="customer_form_login" template="Magento_Customer::form/login.phtml">
+                    <container name="form.additional.info" as="form_additional_info"/>
+                </block>
+                <block class="Magento\Customer\Block\Form\Login\Info" name="customer.new" template="Magento_Customer::newcustomer.phtml"/>
+            </container>
+            <block class="Magento\Cookie\Block\RequireCookie" name="require-cookie" template="Magento_Cookie::require_cookie.phtml">
+                <arguments>
+                    <argument name="triggers" xsi:type="array">
+                        <item name="loginButton" xsi:type="string">.action.login</item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="form.additional.info">
+            <block class="Magento\Framework\View\Element\Template" name="form_additional_info_customer" template="Magento_Customer::additionalinfocustomer.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

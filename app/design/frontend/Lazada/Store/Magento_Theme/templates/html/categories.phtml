@@ -1,0 +1,40 @@
+<?php
+
+// $customerHelper = $this->helper('Lazada\Customer\Helper\Data');
+// $urlInterface = $customerHelper->getUrlInterface();
+
+//if(!$customerHelper->getCustomerSession()->isLoggedIn()){
+//    $customerHelper->getCustomerSession()->setAfterAuthUrl($this->getBaseUrl());
+//    $customerHelper->getCustomerSession()->authenticate();
+//}
+
+?>
+
+
+<div class="category-list" id="category-list">
+	<h3><?php echo __("Browse Our Categories");?></h3>
+	<?php $_outputhelper    = $this->helper('Magento\Catalog\Helper\Output'); ?>
+	<?php if($category_list = $block->getCategoryLists()):?>
+		<ul>
+			<?php $category_count = 1;?>
+			<?php foreach($category_list as $_category):?>
+				<li>
+					<?php if($_category->getData('list_icon')):?>
+						<?php $_imgUrl = $block->getMediaPath().'catalog/category/'.$_category->getData('list_icon') ?>
+					<?php else:?>
+						<?php $_imgUrl = $block->getViewFileUrl("images/_category_default.jpg") ?>
+					<?php endif;?>
+
+					<a href="<?php echo $_category->getUrl();?>" title="<?php echo $_category->getName();?>"><img alt="<?php echo $_category->getName();?>" style="width:90px;height:90px;" src="<?= $_imgUrl ?>" alt="<?php echo $block->escapeHtml($_category->getName());?>" title="<?php echo $block->escapeHtml($_category->getName());?>" /></a>
+					<b style="display:block;"><a href="<?php echo $_category->getUrl();?>"><?php echo $block->getFilter()->truncate($_category->getName(), ['length' => 40]);?></a></b>
+					<p class="desc" style="margin:0px;"><?php echo $block->getFilter()->truncate($block->escapeHtml($_category->getData('list_title'), ['length' => 60]));?></p>
+					
+				</li>
+				<?php $category_count++;?>
+			<?php endforeach;?>
+		</ul> 
+		<div class="clear">&nbsp;</div>
+		
+	<?php endif;?>
+</div>
+
