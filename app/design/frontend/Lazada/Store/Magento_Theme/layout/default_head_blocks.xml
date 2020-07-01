@@ -14,8 +14,11 @@
         <css src="css/styles-m.css"/>
         <css src="css/styles.css"/>
         <link rel="stylesheet" src="https://use.fontawesome.com/releases/v5.7.0/css/all.css" src_type="url" />
-        <link rel="stylesheet" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" src_type="url"/>
+        <link rel="stylesheet" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" src_type="url" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+            
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js" src_type="url"/>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" src_type="url"/>
     </head>
     <!-- <body>
         <referenceContainer name="after.body.start">

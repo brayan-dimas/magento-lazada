@@ -16,9 +16,9 @@
         <referenceBlock name="catalog.compare.sidebar" remove="true"/>
         <referenceBlock name="wishlist_sidebar" remove="true"/> -->
 
-        <referenceContainer name="header-wrapper">
+        <!-- <referenceContainer name="header-wrapper">
             <referenceBlock name="navigation.sections" remove="true" />
-        </referenceContainer>
+        </referenceContainer> -->
         <referenceBlock name="logo" remove="true"></referenceBlock>
         <referenceBlock name="minicart" remove="true"></referenceBlock>
         <referenceBlock name="footer" remove="true"></referenceBlock>

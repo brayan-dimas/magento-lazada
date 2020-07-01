@@ -10,64 +10,213 @@
 ?>
 
 
-<div class="container">
-    <div class = "shadow-sm p-3 mb-5 bg-light">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light"> 
-            <img class="navbar-brand" src="<?php echo $block->getViewFileUrl('Magento_Theme::../images/logo.png'); ?>" alt="Lazada" width="120">                        
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <?php if($customerSession->isLoggedIn()) { ?>
-                        <li class="nav-item"><a class="nav-link" href="<?php echo $this->getUrl('customer/account'); ?>">MY ACCOUNT</a></li>                    
-                        <li class="nav-item"><a class="nav-link" href="<?php echo $this->getUrl('customer/account/logout'); ?>">LOGOUT</a></li>
-                    <?php } else { ?>
-                        <li class="nav-item"><a class="nav-link" href="<?php echo $this->getUrl('customer/account/login'); ?>">LOGIN</a></li>
-                        <li class="nav-item"><a class="nav-link" href="<?php echo $this->getUrl('customer/account/create'); ?>">SIGN UP</a></li>
-                    <?php } ?>
-                    <li class="nav-item"><a class="nav-link" href="<?php echo $this->getUrl('checkout/cart/'); ?>"><i class="fas fa-shopping-cart"></i> CART(<span><?php echo $totalItems; ?></span>)</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?php echo $this->getUrl('checkout/'); ?>">CHECKOUT</a></li>
-                </ul>                           
-            </div>
-        </nav>  
-        <nav class="navbar navbar-expand-lg navbar-light bg-light"> 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                <!-- <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li> -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+<?php
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+
+$women_attire = array();
+$women_attire_link_set = array();
+$men_attire = array();
+$accessories = array();
+// get the list of all categories
+$categoryCollection = $objectManager->get('\Magento\Catalog\Model\ResourceModel\Category\CollectionFactory');
+$categories = $categoryCollection->create();
+$categories->addAttributeToSelect('*');
+
+foreach ($categories as $category) {
+    
+    // Women set
+    if($category['entity_id'] == 20 || $category['entity_id'] == 21 || $category['entity_id'] == 22 || $category['entity_id'] == 23
+    || $category['entity_id'] == 24 || $category['entity_id'] == 25 || $category['entity_id'] == 26 || $category['entity_id'] == 27
+    || $category['entity_id'] == 28) {
+        array_push($women_attire, $category['name'], $category['url_key']);        
+    }
+
+    // Men set
+    if($category['entity_id'] == 11 || $category['entity_id'] == 12 || $category['entity_id'] == 13 || $category['entity_id'] == 14
+    || $category['entity_id'] == 15 || $category['entity_id'] == 16 || $category['entity_id'] == 17 || $category['entity_id'] == 18
+    || $category['entity_id'] == 19) {
+        array_push($men_attire, $category['name'], $category['url_key']);        
+    }
+
+    // Accessories
+    if($category['entity_id'] == 3 || $category['entity_id'] == 4 || $category['entity_id'] == 5 || $category['entity_id'] == 6
+    || $category['entity_id'] == 9 || $category['entity_id'] == 10) {
+        array_push($accessories, $category['name'], $category['url_key']);        
+    }
+
+    // echo '<pre>';
+    //     if($category['entity_id'] == 21) {
+            // print_r($category->getData());
+    //     }
+    // echo '</pre>';
+    // die;
+    // echo $category->getId() . '<br />';
+    // echo $category->getName() . '<br />';
+    // echo $category->getUrl() . '<br />';
+
+}
+    array_push($women_attire_link_set, $women_attire);
+    array_push($women_attire_link_set, $men_attire);
+    array_push($women_attire_link_set, $accessories);
+    // echo '<pre>';
+        // print_r($women_attire);
+        // print_r($women_attire_link_set);
+    // echo '</pre>';
+?>
+<div class = "shadow-sm bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light"> 
+        <img class="navbar-brand" src="<?php echo $block->getViewFileUrl('Magento_Theme::../images/logo.png'); ?>" alt="Lazada" width="120">                        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <?php if($customerSession->isLoggedIn()) { ?>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo $this->getUrl('customer/account'); ?>">MY ACCOUNT</a></li>                    
+                    <li class="nav-item"><a class="nav-link" href="<?php echo $this->getUrl('customer/account/logout'); ?>">LOGOUT</a></li>
+                <?php } else { ?>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo $this->getUrl('customer/account/login'); ?>"><i class="fa fa-user-circle"></i> LOGIN</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?php echo $this->getUrl('customer/account/create'); ?>"><i class="fa fa-user-plus"></i> SIGN UP</a></li>
+                <?php } ?>
+                <li class="nav-item"><a class="nav-link" href="<?php echo $this->getUrl('checkout/cart/'); ?>"><i class="fas fa-shopping-cart"></i> CART(<span><?php echo $totalItems; ?></span>)</a></li>
+                <li class="nav-item"><a class="nav-link" href="<?php echo $this->getUrl('checkout/'); ?>"><i class="fa fa-cubes"></i> CHECKOUT</a></li>
+            </ul>                           
+        </div>
+    </nav>  
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <section>   
+            <div class="div1">            
+                <ul id="nav" class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" href="<?php echo $this->getUrl(''); ?>">HOME</a></li>          
+                    <li class="nav-item dropdown parent women">
+                        <a class="nav-link dropdown-toggle" href="<?php echo substr($this->getUrl($women_attire_link_set[0][1]. '.html'), 0, -1); ?>" id="menu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">                        
+                        <?php echo strtoupper($women_attire_link_set[0][0]); ?>                   
+                        <span class="caret"></span>
+                        </a>          
+                        <ul class="dropdown-menu sub-nav women" role="menu" aria-labelledby="menu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo substr($this->getUrl($women_attire_link_set[0][1].'/'.$women_attire_link_set[0][3] . '.html'), 0, -1); ?>">                        
+                            <!-- <label>TOPS</label> -->
+                            <?php echo strtoupper($women_attire_link_set[0][2]); ?></a></li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo substr($this->getUrl($women_attire_link_set[0][1].'/'.$women_attire_link_set[0][3].'/'.$women_attire_link_set[0][7]. '.html'), 0, -1); ?>">Jackets</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo substr($this->getUrl($women_attire_link_set[0][1].'/'.$women_attire_link_set[0][3].'/'.$women_attire_link_set[0][9]. '.html'), 0, -1); ?>">Hoodies & Sweatshirts</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo substr($this->getUrl($women_attire_link_set[0][1].'/'.$women_attire_link_set[0][3].'/'.$women_attire_link_set[0][11]. '.html'), 0, -1); ?>">Tees</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo substr($this->getUrl($women_attire_link_set[0][1].'/'.$women_attire_link_set[0][3].'/'.$women_attire_link_set[0][13]. '.html'), 0, -1); ?>">Bras & Tanks</a></li> 
+                            <li role="presentation" class="divider"></li>   
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo substr($this->getUrl($women_attire_link_set[0][1].'/'.$women_attire_link_set[0][5]. '.html'), 0, -1); ?>">BOTTOMS</a></li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo substr($this->getUrl($women_attire_link_set[0][1].'/'.$women_attire_link_set[0][5].'/'.$women_attire_link_set[0][15]. '.html'), 0, -1); ?>">Pants</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo substr($this->getUrl($women_attire_link_set[0][1].'/'.$women_attire_link_set[0][5].'/'.$women_attire_link_set[0][17]. '.html'), 0, -1); ?>">Shorts</a></li>              
+                        </ul>           
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Projects</a>
+                    <li class="nav-item dropdown parent men">
+                        <a class="nav-link dropdown-toggle" href="<?php echo substr($this->getUrl($women_attire_link_set[1][1]. '.html'), 0, -1); ?>" id="menu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        MEN<span class="caret"></span>
+                        </a>          
+                        <ul class="dropdown-menu sub-nav men" role="menu" aria-labelledby="menu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo substr($this->getUrl($women_attire_link_set[1][1].'/'.$women_attire_link_set[1][3]. '.html'), 0, -1); ?>">TOPS</a></li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo substr($this->getUrl($women_attire_link_set[1][1].'/'.$women_attire_link_set[1][3].'/'.$women_attire_link_set[1][7]. '.html'), 0, -1); ?>">Jackets</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo substr($this->getUrl($women_attire_link_set[1][1].'/'.$women_attire_link_set[1][3].'/'.$women_attire_link_set[1][9]. '.html'), 0, -1); ?>">Hoodies & Sweatshirts</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo substr($this->getUrl($women_attire_link_set[1][1].'/'.$women_attire_link_set[1][3].'/'.$women_attire_link_set[1][11]. '.html'), 0, -1); ?>">Tees</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo substr($this->getUrl($women_attire_link_set[1][1].'/'.$women_attire_link_set[1][3].'/'.$women_attire_link_set[1][13]. '.html'), 0, -1); ?>">Tanks</a></li> 
+                            <li role="presentation" class="divider"></li>            
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo substr($this->getUrl($women_attire_link_set[1][1].'/'.$women_attire_link_set[1][5]. '.html'), 0, -1); ?>">BOTTOMS</a></li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo substr($this->getUrl($women_attire_link_set[1][1].'/'.$women_attire_link_set[1][5].'/'.$women_attire_link_set[1][15]. '.html'), 0, -1); ?>">Pants</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo substr($this->getUrl($women_attire_link_set[1][1].'/'.$women_attire_link_set[1][5].'/'.$women_attire_link_set[1][17]. '.html'), 0, -1); ?>">Shorts</a></li>              
+                        </ul>           
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                        </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
+                    <li class="nav-item dropdown parent gear">
+                        <a class="nav-link dropdown-toggle" href="<?php echo substr($this->getUrl($women_attire_link_set[2][1]. '.html'), 0, -1); ?>" id="menu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        GEAR<span class="caret"></span>
+                        </a>            
+                        <ul class="dropdown-menu sub-nav gear" role="menu" aria-labelledby="menu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo substr($this->getUrl($women_attire_link_set[2][1].'/'.$women_attire_link_set[2][3]. '.html'), 0, -1); ?>">Bags</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo substr($this->getUrl($women_attire_link_set[2][1].'/'.$women_attire_link_set[2][5]. '.html'), 0, -1); ?>">Fitness Equipment</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo substr($this->getUrl($women_attire_link_set[2][1].'/'.$women_attire_link_set[2][7]. '.html'), 0, -1); ?>">Watches</a></li>                   
+                        </ul>           
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Get in Touch</a>
+                    <li class="nav-item dropdown parent training">
+                        <a class="nav-link dropdown-toggle" href="<?php echo substr($this->getUrl($women_attire_link_set[2][9]. '.html'), 0, -1); ?>" id="menu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        TRAINING<span class="caret"></span>
+                        </a>          
+                        <ul class="dropdown-menu sub-nav training" role="menu" aria-labelledby="menu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="<?php echo substr($this->getUrl($women_attire_link_set[2][9].'/'.$women_attire_link_set[2][11]. '.html'), 0, -1); ?>">Video</a></li>                     
+                        </ul>           
                     </li>           
                 </ul>
-                <form class="form-inline my-2 my-lg-0"action="<?php echo $this->getUrl('catalogsearch/result'); ?>" method="get">                    
+            </div>     
+            <div class="div1">            
+                <form class="mx-2 my-auto d-inline w-25" action="<?php echo $this->getUrl('catalogsearch/result'); ?>" method="get">                    
                     <div class="form-group has-search">
                         <span class="fa fa-search form-control-feedback"></span>
                         <input class="form-control" placeholder="Search" autocomplete="off" maxlength="128" name="q" type="text" value="" placeholder="Search">
-                    </div>
-                    <!-- <div class="form-group has-search">
-                        <span class="fa fa-search form-control-feedback"></span> 
-                        <div class="input-group">                                                                           
-                            <input class="form-control" placeholder="Search this blog" autocomplete="off" maxlength="128" name="q" type="text" value="" placeholder="Search">
-                            <div class="input-group-append">
-                                <button class="btn btn-secondary" title="Search" type="submit">
-                                <i class="fa fa-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div> -->
-                </form>               
+                    </div>              
+                </form> 
             </div>
-        </nav> 
-    </div>
-</div>
+        </section>
+    </nav>
+</div> 
+
+<script>
+require([
+    "jquery",
+    "mage/mage",
+    "jquery/ui"
+], function($){
+
+    var hover_color = "#b3b3cc";
+
+    $(document).ready(function(event) {
+        $(".parent.women").hover(function(){
+            // $('a#menu1').css('color', '#b3b3cc');
+            // $(this).toggleClass('border-focus');
+            $('.sub-nav.women').toggleClass('visible');            
+            $(this).find('.caret').toggleClass('rotate-180');
+            }, function(){
+            // $(this).removeClass('border-focus');
+            $('.sub-nav.women').removeClass('visible');
+            $(this).find('.caret').removeClass('rotate-180');
+        });           
+
+        $(".parent.men").hover(function(){
+            // $('a#menu1').css('color', '#b3b3cc');
+            $('.sub-nav.men').toggleClass('visible');
+            $(this).find('.caret').toggleClass('rotate-180');
+            }, function(){
+            $('.sub-nav.men').removeClass('visible');
+            $(this).find('.caret').removeClass('rotate-180');
+        });           
+        
+        $(".parent.gear").hover(function(){
+            // $('a#menu1').css('color', '#b3b3cc');
+            $('.sub-nav.gear').toggleClass('visible');
+            $(this).find('.caret').toggleClass('rotate-180');
+            }, function(){
+            $('.sub-nav.gear').removeClass('visible');
+            $(this).find('.caret').removeClass('rotate-180');
+        });           
+
+        $(".parent.training").hover(function(){
+            // $('a#menu1').css('color', '#b3b3cc');
+            $('.sub-nav.training').toggleClass('visible');
+            $(this).find('.caret').toggleClass('rotate-180');
+            }, function(){
+            $('.sub-nav.training').removeClass('visible');
+            $(this).find('.caret').removeClass('rotate-180');
+        });           
+
+        // $('.parent').hover('hidden.bs.dropdown', function(e) {
+        //     $(this).find('.caret').toggleClass('rotate-180');
+        //     }, function(){
+        //     $(this).find('.caret').removeClass('rotate-180');
+        // });          
+        
+		
+        // $('.parent').click(function() {
+		// 	$('.sub-nav').toggleClass('visible');
+		// });   
+	});
+
+});
+</script>
